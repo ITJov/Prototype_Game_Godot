@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbb01xcgb66d"]
+
+[ext_resource type="Texture2D" uid="uid://pwui6cnypng6" path="res://sprite/vecteezy_an-8-bit-retro-styled-pixel-art-illustration-of-a-birch-tree_26547554.png" id="1_vehav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sk0v"]
+size = Vector2(3, 20)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-205, -312)
+scale = Vector2(0.00425, 0.009)
+texture = ExtResource("1_vehav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-205, -305)
+shape = SubResource("RectangleShape2D_0sk0v")
