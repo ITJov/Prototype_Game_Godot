@@ -10,16 +10,16 @@ func _ready() -> void:
 func _physics_process(delta) -> void:
 	if(Input.is_action_pressed("ui_right")):
 		$Player_Orang.move_and_collide(Vector2(10,0))
-		print("kanan")
+		#print("kanan")
 	elif(Input.is_action_pressed("ui_left")):
 		$Player_Orang.move_and_collide(Vector2(-10,0))
-		print("kiri")
+		#print("kiri")
 	elif(Input.is_action_pressed("ui_up")):
 		$Player_Orang.move_and_collide(Vector2(0,-10))
-		print("atas")
+		#print("atas")
 	elif(Input.is_action_pressed("ui_down")):
 		$Player_Orang.move_and_collide(Vector2(0,10))
-		print("bawah")
+		#print("bawah")
 	pass
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,4 +42,11 @@ func _physics_process(delta) -> void:
 func dapet_bensin(body: Node2D) -> void:
 	$Bensin.queue_free()
 	$Player_Orang/PointLight2D.texture_scale = 0.15
+	$Timer.start()
+	pass # Replace with function body.
+
+
+func bensin_habis() -> void:
+	$Player_Orang/PointLight2D.texture_scale = 0.1
+	print('besin habis')
 	pass # Replace with function body.
