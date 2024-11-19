@@ -37,3 +37,9 @@ func _physics_process(delta) -> void:
 		#$Player.position = $Player.position + Vector2(0,10)
 		#print("bawah")
 	#pass
+
+
+func dapet_bensin(body: Node2D) -> void:
+	$Bensin.queue_free()
+	$Player_Orang/PointLight2D.texture_scale = 0.15
+	pass # Replace with function body.
