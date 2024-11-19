@@ -6420,3 +6420,4 @@ shape = SubResource("RectangleShape2D_rcotf")
 [node name="obstacle-pohon" type="StaticBody2D" parent="obstacle-pohon"]
 position = Vector2(156, 18)
 physics_material_override = SubResource("PhysicsMaterial_0c0qw")
+; 
