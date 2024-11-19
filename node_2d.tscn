@@ -2065,6 +2065,7 @@ texture = ExtResource("2_w5meg")
 14:33/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3tvej"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3ror6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yv8j"]
@@ -6428,3 +6429,5 @@ physics_material_override = SubResource("PhysicsMaterial_0c0qw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.00392157, 0.00392157, 0.00392157, 0.784314)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
