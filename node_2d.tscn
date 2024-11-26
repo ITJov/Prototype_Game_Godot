@@ -1,11 +1,10 @@
-[gd_scene load_steps=41 format=4 uid="uid://b1gx2ccrm7bgx"]
+[gd_scene load_steps=38 format=4 uid="uid://b1gx2ccrm7bgx"]
 
 [ext_resource type="Script" path="res://script/Main.gd" id="1_l24s7"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_w5meg"]
 [ext_resource type="Texture2D" uid="uid://c3cmxl7lx8bge" path="res://sprite/asset 2.webp" id="3_qn6fu"]
 [ext_resource type="Texture2D" uid="uid://3nh5dkiawbiq" path="res://sprite/sokoban_tilesheet.png" id="4_yi2y8"]
 [ext_resource type="Texture2D" uid="uid://u1mmihkgngxk" path="res://asset/lightmask.png" id="5_5kvxw"]
-[ext_resource type="Texture2D" uid="uid://pwui6cnypng6" path="res://sprite/vecteezy_an-8-bit-retro-styled-pixel-art-illustration-of-a-birch-tree_26547554.png" id="6_vmm6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mxho"]
 texture = ExtResource("2_w5meg")
@@ -6473,11 +6472,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsb8h"]
 radius = 15.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0c0qw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcotf"]
-size = Vector2(22.5, 66.5)
-
 [node name="Node2D" type="Node2D"]
 position = Vector2(512, 391)
 script = ExtResource("1_l24s7")
@@ -6518,23 +6512,6 @@ limit_bottom = 650
 [node name="PointLight2D" type="PointLight2D" parent="Player_Orang"]
 texture = ExtResource("5_5kvxw")
 texture_scale = 0.1
-
-[node name="obstacle-pohon" type="StaticBody2D" parent="."]
-position = Vector2(156, 18)
-physics_material_override = SubResource("PhysicsMaterial_0c0qw")
-
-[node name="Sprite2D" type="Sprite2D" parent="obstacle-pohon"]
-position = Vector2(-23, 19)
-scale = Vector2(0.01875, 0.01875)
-texture = ExtResource("6_vmm6b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle-pohon"]
-position = Vector2(-24, 23)
-shape = SubResource("RectangleShape2D_rcotf")
-
-[node name="obstacle-pohon" type="StaticBody2D" parent="obstacle-pohon"]
-position = Vector2(156, 18)
-physics_material_override = SubResource("PhysicsMaterial_0c0qw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.00392157, 0.00392157, 0.00392157, 0.784314)
