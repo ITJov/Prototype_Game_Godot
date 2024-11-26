@@ -6600,11 +6600,6 @@ texture = ExtResource("7_2qdor")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("8_fvmqb")]
-offset_left = 4.0
-offset_top = -305.0
-offset_right = 304.0
-offset_bottom = -5.0
-action_left = "left"
 
 [connection signal="timeout" from="Timer" to="." method="bensin_habis"]
 [connection signal="body_entered" from="Bensin" to="." method="dapet_bensin"]
