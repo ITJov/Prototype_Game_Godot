@@ -24,4 +24,4 @@ func _physics_process(delta: float) -> void:
 	#update_animation(h, v)
 	
 	# Move the character
-	#move_and_slide(velocity)
+	#move_and_slide(velocity);
