@@ -230,6 +230,7 @@ position = Vector2(0.333, -1)
 shape = SubResource("CircleShape2D_rsb8h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(510, 8)
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 10
