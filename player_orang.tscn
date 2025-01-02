@@ -196,6 +196,11 @@ animations = [{
 "name": &"left",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u1ekg")
@@ -223,7 +228,7 @@ position = Vector2(-384, -310)
 [node name="Karakter" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.333344, 1.33334)
 sprite_frames = SubResource("SpriteFrames_a86gu")
-animation = &"idle_right"
+animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333, -1)

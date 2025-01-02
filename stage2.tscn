@@ -6338,4 +6338,3 @@ tile_set = SubResource("TileSet_bpeds")
 
 [node name="Player_Orang2" parent="." instance=ExtResource("3_fto1e")]
 position = Vector2(-383, -290)
-scale = Vector2(1, 1)
