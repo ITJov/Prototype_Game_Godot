@@ -6629,6 +6629,7 @@ tile_map_data = PackedByteArray("AAADAAMAAAACAAkAAAADAAIAAAACAAkAAAACAAEAAAACAAk
 tile_set = SubResource("TileSet_7uw4a")
 
 [node name="Player_Orang" parent="." groups=["player"] instance=ExtResource("5_cni4b")]
+rotation = -0.000199085
 
 [node name="obstacle-pohon" type="StaticBody2D" parent="."]
 position = Vector2(156, 18)
