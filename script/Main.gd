@@ -1,5 +1,6 @@
 extends Node2D
-var current_dir = 'none'
+var current_dir = 'down'
+var attack_speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +31,21 @@ func _physics_process(delta) -> void:
 		#print("bawah")
 	else:
 		play_animation(0)
-	pass
+	
+	if Input.is_action_just_pressed('attack'):
+		attack_start(current_dir)
+	
+func attack_start(position):
+	var animation = $Player_Orang/Karakter
+	match position :
+		'right': 
+			animation.play('attack_right')
+		'left' : 
+			animation.play('attack_left')
+		'up' : 
+			animation.play('attack_backward')
+		'down' : 
+			animation.play('attack_forward')
 
 func play_animation(movement):
 	var dir = current_dir

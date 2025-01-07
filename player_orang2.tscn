@@ -218,26 +218,24 @@ animations = [{
 radius = 15.0
 
 [node name="Player_Orang2" type="CharacterBody2D"]
-position = Vector2(-384, -310)
+position = Vector2(186, 107)
 
 [node name="Karakter" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.333344, 1.33334)
+position = Vector2(1.39999, 0.399998)
 sprite_frames = SubResource("SpriteFrames_a86gu")
 animation = &"idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.333, -1)
+position = Vector2(1.39966, -1.93334)
 shape = SubResource("CircleShape2D_rsb8h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(510, 8)
+position = Vector2(1.39999, 1.4)
 zoom = Vector2(3, 3)
-limit_left = 0
-limit_top = 10
-limit_right = 1154
-limit_bottom = 650
+limit_left = -4
+limit_top = -4
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(6.39999, 7.4)
 texture = ExtResource("2_dsvsu")
 texture_scale = 0.1

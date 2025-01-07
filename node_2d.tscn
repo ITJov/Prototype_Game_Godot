@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cn6gvngykfcfd" path="res://asset/isian/obor pixel.png" id="11_svgpb"]
 [ext_resource type="Texture2D" uid="uid://u1mmihkgngxk" path="res://asset/lightmask.png" id="12_k5pf4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mxho"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tbjf"]
 texture = ExtResource("2_w5meg")
 40:0/0 = 0
 41:0/0 = 0
@@ -1041,7 +1041,7 @@ texture = ExtResource("2_w5meg")
 14:33/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ktadm"]
-sources/0 = SubResource("TileSetAtlasSource_2mxho")
+sources/0 = SubResource("TileSetAtlasSource_4tbjf")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_llna7"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1058,7 +1058,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a4u5v"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ror6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2n2b"]
 texture = ExtResource("2_w5meg")
 40:0/0 = 0
 41:0/0 = 0
@@ -2223,7 +2223,7 @@ texture = ExtResource("2_w5meg")
 [sub_resource type="TileSet" id="TileSet_3tvej"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_3ror6")
+sources/0 = SubResource("TileSetAtlasSource_n2n2b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yv8j"]
 texture = ExtResource("3_qn6fu")
@@ -6356,7 +6356,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocwbc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7o8e"]
 texture = ExtResource("9_yaul0")
 0:0/0 = 0
 1:0/0 = 0
@@ -6519,7 +6519,7 @@ texture = ExtResource("9_yaul0")
 2:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7uw4a"]
-sources/0 = SubResource("TileSetAtlasSource_ocwbc")
+sources/0 = SubResource("TileSetAtlasSource_j7o8e")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0c0qw"]
 
@@ -6629,6 +6629,7 @@ tile_map_data = PackedByteArray("AAADAAMAAAACAAkAAAADAAIAAAACAAkAAAACAAEAAAACAAk
 tile_set = SubResource("TileSet_7uw4a")
 
 [node name="Player_Orang" parent="." groups=["player"] instance=ExtResource("5_cni4b")]
+position = Vector2(-387, -299)
 rotation = -0.000199085
 
 [node name="obstacle-pohon" type="StaticBody2D" parent="."]
