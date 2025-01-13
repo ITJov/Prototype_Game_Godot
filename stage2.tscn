@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://stage_2.gd" id="1_v5wie"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_v8val"]
 [ext_resource type="Texture2D" uid="uid://dnkbvwg2quhl" path="res://asset/plugin/Water+.png" id="3_c1hxl"]
-[ext_resource type="PackedScene" uid="uid://ffvphu151fwp" path="res://player_orang.tscn" id="4_62r2d"]
+[ext_resource type="PackedScene" uid="uid://ffvphu151fwp" path="res://scene/player_orang.tscn" id="4_62r2d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2nw"]
 texture = ExtResource("2_v8val")

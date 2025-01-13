@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://asset/isian/MIDNIGHT MAZE - GAME.png"
 config/icon="res://icon.svg"
 
+[global_group]
+
+Enemy="All Enemy"
+
 [input]
 
 ui_left={
