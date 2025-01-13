@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://wnfm4b4nip2p"]
+[gd_scene load_steps=33 format=4 uid="uid://wnfm4b4nip2p"]
 
 [ext_resource type="Script" path="res://script/Main.gd" id="1_l24s7"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_w5meg"]
@@ -6525,6 +6525,11 @@ sources/0 = SubResource("TileSetAtlasSource_j7o8e")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcotf"]
 size = Vector2(22.5, 66.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xns0j"]
+size = Vector2(160, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t1a1"]
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(512, 391)
 script = ExtResource("1_l24s7")
@@ -6580,8 +6585,15 @@ physics_material_override = SubResource("PhysicsMaterial_0c0qw")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.00392157, 0.00392157, 0.00392157, 0.784314)
 
+[node name="Slow" type="Area2D" parent="."]
+position = Vector2(-323, -319)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slow"]
+position = Vector2(70, -16)
+shape = SubResource("RectangleShape2D_xns0j")
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 180.0
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -6597,7 +6609,11 @@ position = Vector2(34, -291)
 
 [node name="obor" parent="." instance=ExtResource("10_dgvok")]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Pit" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit"]
+shape = SubResource("RectangleShape2D_6t1a1")
 
 [node name="SmallMonter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_uso2l")]
 position = Vector2(376, -293)
@@ -6612,5 +6628,8 @@ timer = NodePath("../Timer")
 position = Vector2(86, -306)
 player = NodePath("../Player_Orang")
 
+[connection signal="body_entered" from="Slow" to="." method="_on_slow_body_entered"]
+[connection signal="body_exited" from="Slow" to="." method="_on_slow_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Next Gate" to="Next Gate" method="_on_body_entered"]
+[connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]

@@ -34,8 +34,5 @@ offset_top = -303.0
 offset_right = 15.0
 offset_bottom = -3.0
 
-[node name="Next Gate" parent="." index="10"]
-scene_tujuan = null
-
 [node name="Bensin" parent="." index="14"]
 visible = false

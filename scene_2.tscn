@@ -208,7 +208,6 @@ offset_bottom = 224.0
 
 [node name="Next Gate" parent="." index="12"]
 position = Vector2(332, -219)
-scene_tujuan = null
 
 [node name="Node2D" parent="." index="14" instance=ExtResource("3_1rrru")]
 visible = false
