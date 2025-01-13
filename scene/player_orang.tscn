@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://ffvphu151fwp"]
+[gd_scene load_steps=82 format=3 uid="uid://ffvphu151fwp"]
 
 [ext_resource type="Texture2D" uid="uid://bnjfymyytfsoe" path="res://sprite/karakter pixel.png" id="1_37eag"]
 [ext_resource type="Texture2D" uid="uid://c8cf2d7ulx6hx" path="res://asset/isian/karakter pixel.png" id="1_vs6hb"]
@@ -8,54 +8,81 @@
 resource_name = "player_orang"
 script/source = "extends CharacterBody2D
 
-@onready var animation_tree = get_node('AnimationTree')
-var attacking:bool = false
-var health:int = 100
-var dying:bool = false
-var damage:int = 3
+@onready var animation_tree = get_node(\"AnimationTree\")  # Animasi karakter
+@onready var health_bar = get_node(\"HealthBar\")  # Node ProgressBar untuk health bar
 
-func _physics_process(delta) -> void:
-	print(health)
+var attacking: bool = false
+var health: int = 100  # Total health awal
+var max_health: int = 100  # Total maksimal health
+var dying: bool = false
+var damage: int = 3  # Damage yang diterima per hit
+
+func _ready():
+	# Inisialisasi Health Bar
+	health_bar.max_value = max_health
+	health_bar.value = health
+	print(\"HealthBar Initialized: Max Health =\", max_health, \", Current Health =\", health)
+
+func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(\"attack\"):
 		animation_tree.get(\"parameters/playback\").travel(\"Attack\")
 		attacking = true
-	
-	if attacking == false:
+
+	if not attacking:
 		var input_vector = Vector2(
 			Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\"),
 			Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
 		).normalized()
-		
-		self.velocity = input_vector*delta*5000
-		
-		if input_vector == Vector2.ZERO :
+
+		self.velocity = input_vector * delta * 5000
+
+		if input_vector == Vector2.ZERO:
 			animation_tree.get(\"parameters/playback\").travel(\"Idle\")
-		else :
+		else:
 			animation_tree.get(\"parameters/playback\").travel(\"Move\")
 			animation_tree.set(\"parameters/Idle/BlendSpace2D/blend_position\", input_vector)
 			animation_tree.set(\"parameters/Attack/BlendSpace2D/blend_position\", input_vector)
 			animation_tree.set(\"parameters/Move/BlendSpace2D/blend_position\", input_vector)
 		move_and_slide()
 
-func hit(damage):
-	health -= damage
+func hit(damage: int):
+	if dying:
+		return  # Jika karakter sedang mati, abaikan hit
+
+	health -= damage  # Kurangi health
+	if health < 0:
+		health = 0  # Pastikan health tidak negatif
+	update_health_bar()  # Update health bar
+
 	if health <= 0:
 		dying = true
-		self.queue_free()
+		game_over()  # Panggil fungsi game over
 
+func update_health_bar():
+	health_bar.value = health  # Update nilai di ProgressBar
+	print(\"Health Updated: Current Health =\", health, \" | HealthBar Value =\", health_bar.value)
+
+func game_over():
+	print(\"Game Over!\")  # Tampilkan pesan Game Over
+	get_tree().paused = true  # Hentikan semua aktivitas game
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if \"attack\" in anim_name:
 		attacking = false
 
-func bensin_diambil(skala:float):
-	$PointLight2D.texture_scale = skala
-
-
 func _on_attack_dectetor_area_body_entered(body: Node2D) -> void:
+	print(\"Collision detected with:\", body.name)  # Debugging log
 	if body.is_in_group(\"Enemy\"):
-		body.hit(damage) 
+		print(\"Player hit by enemy!\")  # Debugging log
+		body.hit(damage)  # Berikan damage pada musuh
+		hit(damage)  # Kurangi health player
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbe3j"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx487"]
+bg_color = Color(0.779544, 0.0593131, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cp4vq"]
 atlas = ExtResource("1_vs6hb")
@@ -1017,6 +1044,16 @@ height = 40.0
 [node name="Player_Orang" type="CharacterBody2D"]
 position = Vector2(198, 117)
 script = SubResource("GDScript_dk3k3")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -19.0
+offset_right = 13.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vbe3j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hx487")
+value = 100.0
+show_percentage = false
 
 [node name="Karakter" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a86gu")

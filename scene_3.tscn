@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=4 uid="uid://ff6kegrsn1od"]
+[gd_scene load_steps=2 format=4 uid="uid://ff6kegrsn1od"]
 
 [ext_resource type="PackedScene" uid="uid://wnfm4b4nip2p" path="res://node_2d.tscn" id="1_wr36k"]
-[ext_resource type="PackedScene" uid="uid://dchshvpatnsn" path="res://scene_2.tscn" id="2_4d8do"]
 
 [node name="Node2D" instance=ExtResource("1_wr36k")]
 
@@ -29,14 +28,14 @@ visible = false
 [node name="CanvasModulate" parent="." index="7"]
 visible = false
 
-[node name="Bensin" parent="." index="9"]
-visible = false
-
 [node name="Virtual Joystick" parent="CanvasLayer" index="0"]
 offset_left = -285.0
 offset_top = -303.0
 offset_right = 15.0
 offset_bottom = -3.0
 
-[node name="Next Gate" parent="." index="11"]
-scene_tujuan = ExtResource("2_4d8do")
+[node name="Next Gate" parent="." index="10"]
+scene_tujuan = null
+
+[node name="Bensin" parent="." index="14"]
+visible = false

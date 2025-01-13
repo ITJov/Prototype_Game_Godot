@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://ds2tbyg5sys5e"]
+[gd_scene load_steps=19 format=4 uid="uid://ds2tbyg5sys5e"]
 
 [ext_resource type="Script" path="res://stage_2.gd" id="1_v5wie"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_v8val"]
 [ext_resource type="Texture2D" uid="uid://dnkbvwg2quhl" path="res://asset/plugin/Water+.png" id="3_c1hxl"]
 [ext_resource type="PackedScene" uid="uid://ffvphu151fwp" path="res://scene/player_orang.tscn" id="4_62r2d"]
+[ext_resource type="Script" path="res://scene/player_orang.tres.gd" id="5_4uug1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2nw"]
 texture = ExtResource("2_v8val")
@@ -2576,3 +2577,4 @@ tile_set = SubResource("TileSet_elp2t")
 
 [node name="Player_Orang" parent="." instance=ExtResource("4_62r2d")]
 position = Vector2(-378, -283)
+script = ExtResource("5_4uug1")

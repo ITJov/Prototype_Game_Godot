@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=3 uid="uid://bgnxfc5lir5hr"]
+[gd_scene load_steps=215 format=3 uid="uid://bgnxfc5lir5hr"]
 
 [ext_resource type="Script" path="res://script/monster_1.gd" id="1_1i4h3"]
 [ext_resource type="Texture2D" uid="uid://cg5ah57gfcd4c" path="res://asset/asset musuh/Orc2/Orc2_attack/orc2_attack_full.png" id="1_8lwyp"]
@@ -2008,6 +2008,12 @@ states/Walk/position = Vector2(650, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xvdne"), "Chasing", "Attack", SubResource("AnimationNodeStateMachineTransition_ehh4c"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_1kps0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_fdmey"), "Attack", "Chasing", SubResource("AnimationNodeStateMachineTransition_ti3w0"), "Idle", "Chasing", SubResource("AnimationNodeStateMachineTransition_665iw"), "Chasing", "Idle", SubResource("AnimationNodeStateMachineTransition_12tiu"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_21iik"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_l8hux"), "Walk", "Chasing", SubResource("AnimationNodeStateMachineTransition_lskdm"), "Chasing", "Walk", SubResource("AnimationNodeStateMachineTransition_w7pw3"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_a33cl")]
 graph_offset = Vector2(-137.026, 39.2828)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftiyh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk0ph"]
+bg_color = Color(0.779544, 0.0593131, 0, 1)
+
 [node name="SmallMonter" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_1i4h3")
@@ -2050,6 +2056,16 @@ parameters/Chasing/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Death/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Idle/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Walk/BlendSpace2D/blend_position = Vector2(0, 0)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -19.0
+offset_right = 13.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ftiyh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xk0ph")
+value = 100.0
+show_percentage = false
 
 [connection signal="body_entered" from="Player Detector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="Player Detector" to="." method="_on_player_detector_body_exited"]

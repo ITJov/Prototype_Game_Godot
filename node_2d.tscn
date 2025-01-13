@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://wnfm4b4nip2p"]
+[gd_scene load_steps=31 format=4 uid="uid://wnfm4b4nip2p"]
 
 [ext_resource type="Script" path="res://script/Main.gd" id="1_l24s7"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_w5meg"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://asset/plugin/addons/virtual_joystick/virtual_joystick_scene.tscn" id="8_fvmqb"]
 [ext_resource type="PackedScene" uid="uid://bt2kcmnpcmy7r" path="res://scene/next_gate.tscn" id="9_fc63t"]
 [ext_resource type="Texture2D" uid="uid://dnkbvwg2quhl" path="res://asset/plugin/Water+.png" id="9_yaul0"]
-[ext_resource type="PackedScene" uid="uid://ds2tbyg5sys5e" path="res://stage2.tscn" id="10_7q8jt"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="10_dgvok"]
 [ext_resource type="PackedScene" uid="uid://bgnxfc5lir5hr" path="res://scene/monster1.tscn" id="13_uso2l"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="14_rlenc"]
@@ -6595,7 +6594,6 @@ offset_bottom = 34.0
 
 [node name="Next Gate" parent="." instance=ExtResource("9_fc63t")]
 position = Vector2(34, -291)
-scene_tujuan = ExtResource("10_7q8jt")
 
 [node name="obor" parent="." instance=ExtResource("10_dgvok")]
 
