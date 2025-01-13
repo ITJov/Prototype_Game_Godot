@@ -2008,7 +2008,7 @@ states/Walk/position = Vector2(650, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xvdne"), "Chasing", "Attack", SubResource("AnimationNodeStateMachineTransition_ehh4c"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_1kps0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_fdmey"), "Attack", "Chasing", SubResource("AnimationNodeStateMachineTransition_ti3w0"), "Idle", "Chasing", SubResource("AnimationNodeStateMachineTransition_665iw"), "Chasing", "Idle", SubResource("AnimationNodeStateMachineTransition_12tiu"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_21iik"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_l8hux"), "Walk", "Chasing", SubResource("AnimationNodeStateMachineTransition_lskdm"), "Chasing", "Walk", SubResource("AnimationNodeStateMachineTransition_w7pw3"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_a33cl")]
 graph_offset = Vector2(-137.026, 39.2828)
 
-[node name="MediumMonster" type="CharacterBody2D" groups=["Enemy"]]
+[node name="LargeMonster" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_ahu6q")
 
