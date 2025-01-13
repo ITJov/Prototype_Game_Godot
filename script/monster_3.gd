@@ -30,7 +30,6 @@ func _physics_process(delta):
 		return
 
 	var direction = (player.global_position - global_position).normalized()
-	print(health)
 	
 	match current_state:
 		mobState.IDLE:

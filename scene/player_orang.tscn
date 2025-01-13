@@ -1079,7 +1079,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 radius = 9.0
 height = 40.0
 
-[node name="Player_Orang" type="CharacterBody2D"]
+[node name="Player_Orang" type="CharacterBody2D" groups=["player"]]
 position = Vector2(198, 117)
 script = SubResource("GDScript_dk3k3")
 
@@ -1103,10 +1103,6 @@ shape = SubResource("CircleShape2D_rsb8h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-limit_left = 0
-limit_top = 10
-limit_right = 1154
-limit_bottom = 650
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("2_6u67v")

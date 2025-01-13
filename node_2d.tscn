@@ -6563,7 +6563,7 @@ frame_progress = 0.142711
 tile_map_data = PackedByteArray("AAADAAMAAAACAAkAAAADAAIAAAACAAkAAAACAAEAAAACAAkAAAABAAEAAAACAAkAAAAAAAEAAAACAAkAAAD//wEAAAACAAkAAAD+/wEAAAACAAkAAAD9/wQAAAADAAkAAAADAAQAAAADAAkAAAD9/wEAAAADAAkAAAADAAEAAAADAAkAAAD7/wIAAAAEAAkAAAD8/wIAAAAEAAkAAAD8/wMAAAAEAAkAAAD7/wMAAAAEAAkAAAD+/wQAAAACAAkAAAD//wQAAAACAAkAAAAAAAQAAAACAAkAAAABAAQAAAACAAkAAAACAAQAAAACAAkAAAACAAUAAAACAAkAAAD9/wIAAAAAAAkAAAD9/wMAAAAAAAkAAAA=")
 tile_set = SubResource("TileSet_7uw4a")
 
-[node name="Player_Orang" parent="." groups=["player"] instance=ExtResource("5_cni4b")]
+[node name="Player_Orang" parent="." instance=ExtResource("5_cni4b")]
 position = Vector2(-387, -299)
 rotation = -0.000199085
 
@@ -6595,8 +6595,11 @@ position = Vector2(-323, -319)
 position = Vector2(70, -16)
 shape = SubResource("RectangleShape2D_xns0j")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Stage" type="Timer" parent="."]
 wait_time = 180.0
+
+[node name="Bensin_Timer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -6608,7 +6611,7 @@ offset_right = 26.0
 offset_bottom = 34.0
 
 [node name="Next Gate" parent="." instance=ExtResource("9_fc63t")]
-position = Vector2(34, -291)
+position = Vector2(-285, -272)
 scene_tujuan = ExtResource("9_drqxn")
 
 [node name="obor" parent="." instance=ExtResource("10_dgvok")]
@@ -6617,12 +6620,13 @@ scene_tujuan = ExtResource("9_drqxn")
 position = Vector2(-439, -344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit"]
+position = Vector2(55, -25)
 shape = SubResource("RectangleShape2D_6t1a1")
 
 [node name="Bensin" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("14_rlenc")]
 position = Vector2(-168, -306)
 player = NodePath("../Player_Orang")
-timer = NodePath("../Timer")
+timer = NodePath("../Bensin_Timer")
 
 [node name="SmallMonster" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_n865u")]
 position = Vector2(95, -255)
@@ -6656,25 +6660,26 @@ player = NodePath("../Player_Orang")
 position = Vector2(241, -284)
 scale = Vector2(0.0999084, 0.1)
 player = NodePath("../Player_Orang")
-timer = NodePath("../Timer")
+timer = NodePath("../Bensin_Timer")
 
 [node name="Bensin3" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("14_rlenc")]
 position = Vector2(531, -34)
 player = NodePath("../Player_Orang")
-timer = NodePath("../Timer")
+timer = NodePath("../Bensin_Timer")
 
 [node name="Bensin4" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("14_rlenc")]
 position = Vector2(-105, -170)
 player = NodePath("../Player_Orang")
-timer = NodePath("../Timer")
+timer = NodePath("../Bensin_Timer")
 
 [node name="Bensin5" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("14_rlenc")]
 position = Vector2(68, 170)
 player = NodePath("../Player_Orang")
-timer = NodePath("../Timer")
+timer = NodePath("../Bensin_Timer")
 
 [connection signal="body_entered" from="Slow" to="." method="_on_slow_body_entered"]
 [connection signal="body_exited" from="Slow" to="." method="_on_slow_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Stage" to="." method="_on_stage_timeout"]
+[connection signal="timeout" from="Bensin_Timer" to="." method="_on_bensin_timer_timeout"]
 [connection signal="body_entered" from="Next Gate" to="Next Gate" method="_on_body_entered"]
 [connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]
