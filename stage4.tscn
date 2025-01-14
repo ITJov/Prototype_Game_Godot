@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="10_bpp7x"]
 [ext_resource type="PackedScene" uid="uid://b2mm1qoocsybj" path="res://scene/monster2.tscn" id="11_7r21y"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="12_m1baf"]
-[ext_resource type="PackedScene" path="res://scene/hati.tscn" id="14_hxmha"]
+[ext_resource type="PackedScene" uid="uid://bwkq7cm37ysl6" path="res://scene/hati.tscn" id="14_hxmha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tbjf"]
 texture = ExtResource("1_tun7q")

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="8_uknw2"]
 [ext_resource type="PackedScene" uid="uid://b2mm1qoocsybj" path="res://scene/monster2.tscn" id="9_ups6t"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="10_jiej6"]
-[ext_resource type="PackedScene" path="res://scene/hati.tscn" id="11_rx6sf"]
+[ext_resource type="PackedScene" uid="uid://bwkq7cm37ysl6" path="res://scene/hati.tscn" id="11_rx6sf"]
 [ext_resource type="PackedScene" uid="uid://47qofoo5ukd7" path="res://scene/endGame.tscn" id="12_14qqs"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="13_yvf2p"]
 
