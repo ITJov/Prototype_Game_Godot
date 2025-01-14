@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var health_bar = get_node("HealthBar")  # Node ProgressBar untuk health bar
 
 var attacking: bool = false
-var health: int = 10  # Total health awal
-var max_health: int = 10  # Total maksimal health
+var health: int = 150  # Total health awal
+var max_health: int = 150  # Total maksimal health
 var dying: bool = false
 var damage: int = 1  # Damage yang diterima per hit
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt2kcmnpcmy7r"]
+[gd_scene load_steps=3 format=3 uid="uid://bt2kcmnpcmy7r"]
 
 [ext_resource type="Script" path="res://script/next_gate.gd" id="1_v3y0u"]
-[ext_resource type="Texture2D" uid="uid://ccq61afu6japs" path="res://asset/isian/tangga pixel.png" id="2_kssd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhits"]
 size = Vector2(30, 27)
@@ -10,10 +9,4 @@ size = Vector2(30, 27)
 script = ExtResource("1_v3y0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-271, 17.5)
 shape = SubResource("RectangleShape2D_dhits")
-
-[node name="NextStage" type="Sprite2D" parent="."]
-position = Vector2(-271, 17)
-scale = Vector2(0.0590466, 0.0588553)
-texture = ExtResource("2_kssd3")

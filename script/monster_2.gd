@@ -16,8 +16,8 @@ enum mobState {
 
 var speed: int = 3000
 var current_state
-var damage: int = 5
-var health: int = 15
+var damage: int = 7
+var health: int = 60
 
 func _ready():	
 	current_state = mobState.IDLE

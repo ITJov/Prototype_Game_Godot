@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://ff6kegrsn1od"]
+[gd_scene load_steps=3 format=4 uid="uid://ff6kegrsn1od"]
 
 [ext_resource type="PackedScene" uid="uid://wnfm4b4nip2p" path="res://node_2d.tscn" id="1_wr36k"]
+[ext_resource type="PackedScene" uid="uid://o50uflhln64p" path="res://stage3.tscn" id="2_s6fy2"]
 
 [node name="Node2D" instance=ExtResource("1_wr36k")]
 
@@ -25,14 +26,14 @@ visible = false
 [node name="obstacle-pohon" parent="." index="6"]
 visible = false
 
-[node name="CanvasModulate" parent="." index="7"]
-visible = false
-
 [node name="Virtual Joystick" parent="CanvasLayer" index="0"]
 offset_left = -285.0
 offset_top = -303.0
 offset_right = 15.0
 offset_bottom = -3.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Bensin" parent="." index="14"]
 visible = false
+
+[node name="Node2D" parent="." index="26" instance=ExtResource("2_s6fy2")]
