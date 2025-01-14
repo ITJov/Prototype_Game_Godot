@@ -1,14 +1,14 @@
-[gd_scene load_steps=27 format=4 uid="uid://ds2tbyg5sys5e"]
+[gd_scene load_steps=28 format=4 uid="uid://bselihjmo7jtl"]
 
 [ext_resource type="Script" path="res://stage_2.gd" id="1_v5wie"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_v8val"]
 [ext_resource type="Texture2D" uid="uid://dnkbvwg2quhl" path="res://asset/plugin/Water+.png" id="3_c1hxl"]
 [ext_resource type="PackedScene" uid="uid://ffvphu151fwp" path="res://scene/player_orang.tscn" id="4_62r2d"]
-[ext_resource type="PackedScene" uid="uid://b3ngtmt43ss74" path="res://slow.tscn" id="4_yh0mx"]
+[ext_resource type="PackedScene" uid="uid://cxitcihijr3ea" path="res://slow.tscn" id="4_yh0mx"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://asset/plugin/addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_brjyq"]
 [ext_resource type="PackedScene" uid="uid://bt2kcmnpcmy7r" path="res://scene/next_gate.tscn" id="7_kwtsf"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="8_barqs"]
-[ext_resource type="PackedScene" uid="uid://o50uflhln64p" path="res://stage3.tscn" id="8_ptud2"]
+[ext_resource type="PackedScene" uid="uid://c0f4db0pjjxbg" path="res://stage3.tscn" id="8_ptud2"]
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="9_8cpa4"]
 [ext_resource type="PackedScene" uid="uid://bgnxfc5lir5hr" path="res://scene/monster1.tscn" id="10_tun45"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="11_73vks"]
@@ -2558,6 +2558,9 @@ sources/0 = SubResource("TileSetAtlasSource_bhjyj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmdw3"]
 size = Vector2(31.875, 29.875)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt2vp"]
+size = Vector2(526.5, 172)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(511, 408)
 script = ExtResource("1_v5wie")
@@ -2599,7 +2602,7 @@ wait_time = 10.0
 one_shot = true
 
 [node name="Player_Orang" parent="." instance=ExtResource("4_62r2d")]
-position = Vector2(-382, -271)
+position = Vector2(-384, -298)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2611,7 +2614,7 @@ offset_bottom = 224.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Next Gate" parent="." instance=ExtResource("7_kwtsf")]
-position = Vector2(-274, -269)
+position = Vector2(-231, -285)
 scene_tujuan = ExtResource("8_ptud2")
 
 [node name="obor" parent="." instance=ExtResource("8_barqs")]
@@ -2705,11 +2708,17 @@ position = Vector2(407, 1000)
 shape = SubResource("RectangleShape2D_hmdw3")
 
 [node name="Pit4" type="Area2D" parent="."]
-position = Vector2(-439, -344)
+position = Vector2(-419, -316)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit4"]
 position = Vector2(1783, 952)
 shape = SubResource("RectangleShape2D_hmdw3")
+
+[node name="slow2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slow2"]
+position = Vector2(1292.75, 330)
+shape = SubResource("RectangleShape2D_gt2vp")
 
 [connection signal="body_entered" from="Slow" to="." method="_on_slow_body_entered"]
 [connection signal="body_exited" from="Slow" to="." method="_on_slow_body_exited"]
@@ -2720,3 +2729,5 @@ shape = SubResource("RectangleShape2D_hmdw3")
 [connection signal="body_entered" from="Pit2" to="." method="_on_pit_body_entered"]
 [connection signal="body_entered" from="Pit3" to="." method="_on_pit_body_entered"]
 [connection signal="body_entered" from="Pit4" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="slow2" to="." method="_on_slow_body_entered"]
+[connection signal="body_exited" from="slow2" to="." method="_on_slow_body_exited"]

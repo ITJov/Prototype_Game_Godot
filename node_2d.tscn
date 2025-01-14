@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://wnfm4b4nip2p"]
+[gd_scene load_steps=34 format=4 uid="uid://biybbpuvxbb6a"]
 
 [ext_resource type="Script" path="res://script/Main.gd" id="1_l24s7"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_w5meg"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ffvphu151fwp" path="res://scene/player_orang.tscn" id="5_cni4b"]
 [ext_resource type="Texture2D" uid="uid://pwui6cnypng6" path="res://sprite/vecteezy_an-8-bit-retro-styled-pixel-art-illustration-of-a-birch-tree_26547554.png" id="6_vmm6b"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://asset/plugin/addons/virtual_joystick/virtual_joystick_scene.tscn" id="8_fvmqb"]
-[ext_resource type="PackedScene" uid="uid://ds2tbyg5sys5e" path="res://stage2.tscn" id="9_drqxn"]
+[ext_resource type="PackedScene" uid="uid://bselihjmo7jtl" path="res://stage2.tscn" id="9_drqxn"]
 [ext_resource type="PackedScene" uid="uid://bt2kcmnpcmy7r" path="res://scene/next_gate.tscn" id="9_fc63t"]
 [ext_resource type="Texture2D" uid="uid://dnkbvwg2quhl" path="res://asset/plugin/Water+.png" id="9_yaul0"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="10_dgvok"]
@@ -6532,7 +6532,7 @@ size = Vector2(160, 52)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t1a1"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(512, 391)
+position = Vector2(494, 325)
 script = ExtResource("1_l24s7")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -6550,6 +6550,7 @@ tile_map_data = PackedByteArray("AACRAF3/AAAIAAYAAACRAF7/AAAIAAcAAACRAF//AAAIAAg
 tile_set = SubResource("TileSet_bpeds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(10.0781, 50.0312)
 scale = Vector2(6.24023, 3.49609)
 sprite_frames = SubResource("SpriteFrames_pb1ek")
@@ -6560,6 +6561,8 @@ frame_progress = 0.142711
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(3, -2)
 tile_map_data = PackedByteArray("AAADAAMAAAACAAkAAAADAAIAAAACAAkAAAACAAEAAAACAAkAAAABAAEAAAACAAkAAAAAAAEAAAACAAkAAAD//wEAAAACAAkAAAD+/wEAAAACAAkAAAD9/wQAAAADAAkAAAADAAQAAAADAAkAAAD9/wEAAAADAAkAAAADAAEAAAADAAkAAAD7/wIAAAAEAAkAAAD8/wIAAAAEAAkAAAD8/wMAAAAEAAkAAAD7/wMAAAAEAAkAAAD+/wQAAAACAAkAAAD//wQAAAACAAkAAAAAAAQAAAACAAkAAAABAAQAAAACAAkAAAACAAQAAAACAAkAAAACAAUAAAACAAkAAAD9/wIAAAAAAAkAAAD9/wMAAAAAAAkAAAA=")
 tile_set = SubResource("TileSet_7uw4a")
 
@@ -6581,7 +6584,7 @@ position = Vector2(-24, 23)
 shape = SubResource("RectangleShape2D_rcotf")
 
 [node name="obstacle-pohon" type="StaticBody2D" parent="obstacle-pohon"]
-position = Vector2(156, 18)
+position = Vector2(-23, 23)
 physics_material_override = SubResource("PhysicsMaterial_0c0qw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

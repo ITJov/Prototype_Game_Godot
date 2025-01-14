@@ -11,7 +11,7 @@ func _ready():
 	slow_area.connect("body_exited", Callable(self, "_on_Slow_body_exited"))
 	
 	# Hubungkan sinyal dari area Pit (jurang)
-	pit_area.connect("body_entered", Callable(self, "_on_Pit_body_entered"))
+	#pit_area.connect("body_entered", Callable(self, "_on_Pit_body_entered"))
 
 func _physics_process(delta: float) -> void:
 	pass

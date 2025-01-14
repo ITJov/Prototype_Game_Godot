@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://o50uflhln64p"]
+[gd_scene load_steps=31 format=4 uid="uid://c0f4db0pjjxbg"]
 
 [ext_resource type="Script" path="res://stage_3.gd" id="1_aca42"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="1_v6nhs"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="7_ha7yp"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://asset/plugin/addons/virtual_joystick/virtual_joystick_scene.tscn" id="8_oynjd"]
 [ext_resource type="PackedScene" uid="uid://bt2kcmnpcmy7r" path="res://scene/next_gate.tscn" id="9_17cqw"]
-[ext_resource type="PackedScene" uid="uid://dv3rbxko43dm2" path="res://stage4.tscn" id="10_b2juv"]
+[ext_resource type="PackedScene" uid="uid://4ear44o1sne5" path="res://stage4.tscn" id="10_b2juv"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="11_cptd4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tbjf"]
@@ -6522,6 +6522,7 @@ texture = ExtResource("3_8kmj3")
 sources/0 = SubResource("TileSetAtlasSource_j7o8e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ye0o"]
+size = Vector2(37, 32)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(514, 416)
@@ -6634,6 +6635,44 @@ timer = NodePath("../../Bensin_Timer")
 position = Vector2(-439, -344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit"]
+position = Vector2(326, 180)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="Pit3" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit3"]
+position = Vector2(726, 310)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="Pit2" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit2"]
+position = Vector2(116, 389)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="Pit4" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit4"]
+position = Vector2(551, 549)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pit4"]
+position = Vector2(120, 630)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pit4"]
+position = Vector2(309, 820)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pit4"]
+position = Vector2(20, 903)
+shape = SubResource("RectangleShape2D_7ye0o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pit4"]
+position = Vector2(695, 742)
 shape = SubResource("RectangleShape2D_7ye0o")
 
 [node name="Bensin2" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("7_ha7yp")]
@@ -6648,4 +6687,7 @@ scene_tujuan = ExtResource("10_b2juv")
 [connection signal="timeout" from="Stage" to="." method="_on_stage_timeout"]
 [connection signal="timeout" from="Bensin_Timer" to="." method="_on_bensin_timer_timeout"]
 [connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit3" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit2" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit4" to="." method="_on_pit_body_entered"]
 [connection signal="body_entered" from="Next Gate" to="Next Gate" method="_on_body_entered"]

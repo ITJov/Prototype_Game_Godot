@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dv3rbxko43dm2"]
+[gd_scene load_steps=32 format=4 uid="uid://4ear44o1sne5"]
 
 [ext_resource type="Script" path="res://stage_4.gd" id="1_dwkkj"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="1_tun7q"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ffvphu151fwp" path="res://scene/player_orang.tscn" id="4_prxle"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://asset/plugin/addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_s0bfb"]
 [ext_resource type="PackedScene" uid="uid://bt2kcmnpcmy7r" path="res://scene/next_gate.tscn" id="6_7fsc4"]
-[ext_resource type="PackedScene" uid="uid://byo1ej3hy4yw0" path="res://stage5.tscn" id="7_7ybxe"]
+[ext_resource type="PackedScene" uid="uid://drips0gjufx6l" path="res://stage5.tscn" id="7_7ybxe"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="8_lgjda"]
 [ext_resource type="PackedScene" uid="uid://bgnxfc5lir5hr" path="res://scene/monster1.tscn" id="9_84p5d"]
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="10_bpp7x"]
@@ -6523,6 +6523,7 @@ texture = ExtResource("3_4o14p")
 sources/0 = SubResource("TileSetAtlasSource_j7o8e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn66q"]
+size = Vector2(35, 32)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(513, 416)
@@ -6584,10 +6585,74 @@ scene_tujuan = ExtResource("7_7ybxe")
 position = Vector2(-439, -344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit"]
+position = Vector2(694.5, 312)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit2" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit2"]
+position = Vector2(1815, 743)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit3" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit3"]
+position = Vector2(2329, 681)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit4" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit4"]
+position = Vector2(792, 1141)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit5" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit5"]
+position = Vector2(197, 1240)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit6" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit6"]
+position = Vector2(71, 967)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit7" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit7"]
+position = Vector2(84, 1493)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit8" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit8"]
+position = Vector2(280, 1572)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit9" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit9"]
+position = Vector2(728, 1544)
+shape = SubResource("RectangleShape2D_mn66q")
+
+[node name="Pit10" type="Area2D" parent="."]
+position = Vector2(-439, -344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit10"]
+position = Vector2(1000, 1672)
 shape = SubResource("RectangleShape2D_mn66q")
 
 [node name="Player_Orang" parent="." instance=ExtResource("4_prxle")]
-position = Vector2(-385, -294)
+position = Vector2(-381, -320)
 
 [node name="MediumMonster" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_84p5d")]
 position = Vector2(100, -120)
@@ -6666,4 +6731,13 @@ wait_time = 180.0
 [connection signal="timeout" from="Bensin_Timer" to="." method="_on_bensin_timer_timeout"]
 [connection signal="body_entered" from="Next Gate" to="Next Gate" method="_on_body_entered"]
 [connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit2" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit3" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit4" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit5" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit6" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit7" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit8" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit9" to="." method="_on_pit_body_entered"]
+[connection signal="body_entered" from="Pit10" to="." method="_on_pit_body_entered"]
 [connection signal="timeout" from="Stage" to="." method="_on_stage_timeout"]
