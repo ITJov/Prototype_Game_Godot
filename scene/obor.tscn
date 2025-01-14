@@ -74,7 +74,6 @@ height = 16.0
 [node name="obor" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.99998, -314)
 scale = Vector2(0.0445312, 0.0445312)
 sprite_frames = SubResource("SpriteFrames_xhrsa")
 animation = &"idle"
@@ -82,11 +81,9 @@ autoplay = "idle"
 frame_progress = 0.9304
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -315)
 shape = SubResource("CapsuleShape2D_2g3e4")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1.99999, -315)
 scale = Vector2(0.0443115, 0.0443115)
 color = Color(0.82265, 0.585043, 0, 1)
 texture = ExtResource("2_18afy")

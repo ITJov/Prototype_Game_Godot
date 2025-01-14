@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c0f4db0pjjxbg"]
+[gd_scene load_steps=32 format=4 uid="uid://c0f4db0pjjxbg"]
 
 [ext_resource type="Script" path="res://stage_3.gd" id="1_aca42"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="1_v6nhs"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bt2kcmnpcmy7r" path="res://scene/next_gate.tscn" id="9_17cqw"]
 [ext_resource type="PackedScene" uid="uid://4ear44o1sne5" path="res://stage4.tscn" id="10_b2juv"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="11_cptd4"]
+[ext_resource type="PackedScene" uid="uid://bwkq7cm37ysl6" path="res://scene/hati.tscn" id="13_n04hq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tbjf"]
 texture = ExtResource("1_v6nhs")
@@ -6608,6 +6609,16 @@ color = Color(0.00392157, 0.00392157, 0.00392157, 0.784314)
 wait_time = 10.0
 one_shot = true
 
+[node name="Bensin3" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("7_ha7yp")]
+position = Vector2(78, 529)
+player = NodePath("../Player_Orang")
+timer = NodePath("../Bensin_Timer")
+
+[node name="Bensin4" parent="." node_paths=PackedStringArray("player", "timer") instance=ExtResource("7_ha7yp")]
+position = Vector2(60, 324)
+player = NodePath("../Player_Orang")
+timer = NodePath("../Bensin_Timer")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("8_oynjd")]
@@ -6619,14 +6630,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Bensin" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("7_ha7yp")]
 position = Vector2(99.9999, 550)
-timer = NodePath("../../Bensin_Timer")
-
-[node name="Bensin2" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("7_ha7yp")]
-position = Vector2(663, 938)
-timer = NodePath("../../Bensin_Timer")
-
-[node name="Bensin3" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("7_ha7yp")]
-position = Vector2(574, 740)
 timer = NodePath("../../Bensin_Timer")
 
 [node name="obor" parent="." instance=ExtResource("11_cptd4")]
@@ -6649,7 +6652,7 @@ shape = SubResource("RectangleShape2D_7ye0o")
 position = Vector2(-439, -344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit2"]
-position = Vector2(116, 389)
+position = Vector2(119, 392)
 shape = SubResource("RectangleShape2D_7ye0o")
 
 [node name="Pit4" type="Area2D" parent="."]
@@ -6681,8 +6684,20 @@ player = NodePath("../Player_Orang")
 timer = NodePath("../Bensin_Timer")
 
 [node name="Next Gate" parent="." instance=ExtResource("9_17cqw")]
-position = Vector2(380, -184)
+position = Vector2(384, 655)
 scene_tujuan = ExtResource("10_b2juv")
+
+[node name="hati" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_n04hq")]
+position = Vector2(-311, -332)
+player = NodePath("../Player_Orang")
+
+[node name="hati2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_n04hq")]
+position = Vector2(-343, 72)
+player = NodePath("../Player_Orang")
+
+[node name="hati3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_n04hq")]
+position = Vector2(265, 265)
+player = NodePath("../Player_Orang")
 
 [connection signal="timeout" from="Stage" to="." method="_on_stage_timeout"]
 [connection signal="timeout" from="Bensin_Timer" to="." method="_on_bensin_timer_timeout"]

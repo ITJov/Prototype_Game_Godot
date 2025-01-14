@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bselihjmo7jtl"]
+[gd_scene load_steps=29 format=4 uid="uid://bselihjmo7jtl"]
 
 [ext_resource type="Script" path="res://stage_2.gd" id="1_v5wie"]
 [ext_resource type="Texture2D" uid="uid://yuyd3pqlscr5" path="res://sprite/mainlevbuild.png" id="2_v8val"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="9_8cpa4"]
 [ext_resource type="PackedScene" uid="uid://bgnxfc5lir5hr" path="res://scene/monster1.tscn" id="10_tun45"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="11_73vks"]
+[ext_resource type="PackedScene" uid="uid://bwkq7cm37ysl6" path="res://scene/hati.tscn" id="13_d0nx3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2nw"]
 texture = ExtResource("2_v8val")
@@ -2614,10 +2615,11 @@ offset_bottom = 224.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Next Gate" parent="." instance=ExtResource("7_kwtsf")]
-position = Vector2(-231, -285)
+position = Vector2(1697, 622)
 scene_tujuan = ExtResource("8_ptud2")
 
 [node name="obor" parent="." instance=ExtResource("8_barqs")]
+position = Vector2(-299, -393)
 
 [node name="Pit" type="Area2D" parent="."]
 position = Vector2(-439, -344)
@@ -2711,7 +2713,7 @@ shape = SubResource("RectangleShape2D_hmdw3")
 position = Vector2(-419, -316)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit4"]
-position = Vector2(1783, 952)
+position = Vector2(1763, 924)
 shape = SubResource("RectangleShape2D_hmdw3")
 
 [node name="slow2" type="Area2D" parent="."]
@@ -2719,6 +2721,22 @@ shape = SubResource("RectangleShape2D_hmdw3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="slow2"]
 position = Vector2(1292.75, 330)
 shape = SubResource("RectangleShape2D_gt2vp")
+
+[node name="hati" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_d0nx3")]
+position = Vector2(183, 123)
+player = NodePath("../Player_Orang")
+
+[node name="hati2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_d0nx3")]
+position = Vector2(541, -48)
+player = NodePath("../Player_Orang")
+
+[node name="hati3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_d0nx3")]
+position = Vector2(-121, 432)
+player = NodePath("../Player_Orang")
+
+[node name="hati4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_d0nx3")]
+position = Vector2(1162, 367)
+player = NodePath("../Player_Orang")
 
 [connection signal="body_entered" from="Slow" to="." method="_on_slow_body_entered"]
 [connection signal="body_exited" from="Slow" to="." method="_on_slow_body_exited"]
