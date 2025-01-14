@@ -18,8 +18,8 @@ enum mobState {
 var speed: int = 3000
 var current_state
 var damage: int = 5
-var health: int = 15  # Health awal musuh
-var max_health: int = 15  # Maksimal health musuh
+var health: int = 20  # Health awal musuh
+var max_health: int = 20  # Maksimal health musuh
 
 # Titik awal dan titik limit
 var start_position: Vector2

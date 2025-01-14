@@ -1,15 +1,10 @@
 extends Node2D
 
 @onready var player = $Player_Orang  # Referensi ke karakter player
-@onready var slow_area = $Slow  # Node Area2D untuk efek slow
 @onready var pit_area = $Pit  # Node Area2D untuk jurang
 @onready var timer = $Stage  # Referensi ke Timer untuk penghitungan waktu
 
 func _ready():
-	# Hubungkan sinyal dari area Slow
-	slow_area.connect("body_entered", Callable(self, "_on_Slow_body_entered"))
-	slow_area.connect("body_exited", Callable(self, "_on_Slow_body_exited"))
-	
 	# Hubungkan sinyal dari area Pit (jurang)
 	pit_area.connect("body_entered", Callable(self, "_on_Pit_body_entered"))
 
