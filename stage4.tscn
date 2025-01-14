@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="10_bpp7x"]
 [ext_resource type="PackedScene" uid="uid://b2mm1qoocsybj" path="res://scene/monster2.tscn" id="11_7r21y"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="12_m1baf"]
-[ext_resource type="PackedScene" uid="uid://bwkq7cm37ysl6" path="res://scene/hati.tscn" id="14_hxmha"]
+[ext_resource type="PackedScene" path="res://scene/hati.tscn" id="14_hxmha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tbjf"]
 texture = ExtResource("1_tun7q")
@@ -6560,8 +6560,7 @@ tile_map_data = PackedByteArray("AAADAAMAAAACAAkAAAADAAIAAAACAAkAAAACAAEAAAACAAk
 tile_set = SubResource("TileSet_7uw4a")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.00392157, 0.00392157, 0.00392157, 0.784314)
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="Bensin_Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -6653,9 +6652,6 @@ position = Vector2(-439, -344)
 position = Vector2(1000, 1672)
 shape = SubResource("RectangleShape2D_mn66q")
 
-[node name="Player_Orang" parent="." instance=ExtResource("4_prxle")]
-position = Vector2(-381, -320)
-
 [node name="MediumMonster" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_84p5d")]
 position = Vector2(100, -120)
 player = NodePath("../Player_Orang")
@@ -6684,9 +6680,8 @@ player = NodePath("../Player_Orang")
 position = Vector2(582, 1119)
 player = NodePath("../Player_Orang")
 
-[node name="LargeMonster" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_7r21y")]
+[node name="LargeMonster" parent="." instance=ExtResource("11_7r21y")]
 position = Vector2(87, 846)
-player = NodePath("../Player_Orang")
 
 [node name="SmallMonster6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_bpp7x")]
 position = Vector2(-100, 1147)
@@ -6761,6 +6756,70 @@ player = NodePath("../Player_Orang")
 [node name="hati8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_hxmha")]
 position = Vector2(540, 1396)
 player = NodePath("../Player_Orang")
+
+[node name="Player_Orang" parent="." instance=ExtResource("4_prxle")]
+position = Vector2(-381, -320)
+stage_time_limit = 360
+
+[node name="obor2" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-116, -383)
+
+[node name="obor3" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(410, -385)
+
+[node name="obor4" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(173, -2)
+
+[node name="obor5" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-462, -176)
+
+[node name="obor6" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(593, -164)
+
+[node name="obor7" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-87, 248)
+
+[node name="obor8" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(503, 353)
+
+[node name="obor9" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(900, 424)
+
+[node name="obor10" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(806, 515)
+
+[node name="obor11" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(1138, 114)
+
+[node name="obor12" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(1174, 675)
+
+[node name="obor13" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(2007, 617)
+
+[node name="obor14" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(1453, 244)
+
+[node name="obor15" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(369, 586)
+
+[node name="obor16" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-72, 592)
+
+[node name="obor17" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-101, 969)
+
+[node name="obor18" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(683, 1121)
+
+[node name="obor19" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(261, 1417)
+
+[node name="obor20" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-441, 1094)
+
+[node name="obor21" parent="." instance=ExtResource("8_lgjda")]
+position = Vector2(-106, 1420)
 
 [connection signal="timeout" from="Bensin_Timer" to="." method="_on_bensin_timer_timeout"]
 [connection signal="body_entered" from="Next Gate" to="Next Gate" method="_on_body_entered"]

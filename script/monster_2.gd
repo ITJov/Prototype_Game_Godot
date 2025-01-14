@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var hit_detector = get_node("Hit Detector/CollisionShape2D")
 @onready var animation_state = animation_tree.get("parameters/playback")
 @onready var animation_player = get_node("AnimationPlayer")
+@onready var health_bar = get_node("HealthBar") 
+@onready var troll3 = $troll3
 
 enum mobState {
 	IDLE,
@@ -17,12 +19,18 @@ enum mobState {
 var speed: int = 3000
 var current_state
 var damage: int = 7
-var health: int = 40
+var health: int = 40  # Health awal musuh
+var max_health: int = 20  # Maksimal health musuh
+
 
 func _ready():	
 	current_state = mobState.IDLE
 	if animation_state:
 		animation_state.travel("Idle")
+	
+	health_bar.max_value = max_health
+	health_bar.value = health
+	print("Enemy HealthBar Initialized: Max Health =", max_health, ", Current Health =", health)
 
 func _physics_process(delta):
 	if not is_instance_valid(player):
@@ -59,12 +67,21 @@ func _physics_process(delta):
 			animation_tree.set("parameters/Death/BlendSpace2D/blend_position", direction)
 
 	move_and_slide()
-	
+
 func hit(damage):
-	health -= damage
+	print("Enemy Hit! Damage =", damage)  # Debugging log
+	health -= damage  # Kurangi health musuh
+	if health < 0:
+		health = 0  # Pastikan health tidak negatif
+	update_health_bar()  # Perbarui Health Bar
+
 	if health <= 0:
 		current_state = mobState.DEATH
+		print("Enemy Died!")  # Debugging log
 
+func update_health_bar():
+	health_bar.value = health  # Update nilai di ProgressBar
+	print("Enemy Health Updated: Current Health =", health, " | HealthBar Value =", health_bar.value)  # Debugging log
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

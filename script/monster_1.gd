@@ -5,7 +5,8 @@ extends CharacterBody2D
 @onready var hit_detector = get_node("Hit Detector/CollisionShape2D")
 @onready var animation_state = animation_tree.get("parameters/playback")
 @onready var animation_player = get_node("AnimationPlayer")
-@onready var health_bar = get_node("HealthBar")  # Node ProgressBar untuk health bar musuh
+@onready var health_bar = get_node("HealthBar") 
+@onready var troll3 = $troll3
 
 enum mobState {
 	IDLE,
@@ -21,17 +22,12 @@ var damage: int = 5
 var health: int = 20  # Health awal musuh
 var max_health: int = 20  # Maksimal health musuh
 
-# Titik awal dan titik limit
-var start_position: Vector2
-var limit_position: Vector2
-var moving_towards_limit: bool = true  # Flag untuk menentukan arah gerak musuh
 
-func _ready():
+func _ready():	
 	current_state = mobState.IDLE
 	if animation_state:
 		animation_state.travel("Idle")
 	
-	# Inisialisasi Health Bar
 	health_bar.max_value = max_health
 	health_bar.value = health
 	print("Enemy HealthBar Initialized: Max Health =", max_health, ", Current Health =", health)

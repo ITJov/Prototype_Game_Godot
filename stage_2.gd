@@ -6,6 +6,7 @@ extends Node2D
 @onready var timer = $Stage  # Referensi ke Timer untuk penghitungan waktu
 
 func _ready():
+	AudioGlobal.play_music_level()
 	# Hubungkan sinyal dari area Slow
 	slow_area.connect("body_entered", Callable(self, "_on_Slow_body_entered"))
 	slow_area.connect("body_exited", Callable(self, "_on_Slow_body_exited"))

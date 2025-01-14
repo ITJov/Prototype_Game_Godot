@@ -1,8 +1,9 @@
-[gd_scene load_steps=82 format=3 uid="uid://ffvphu151fwp"]
+[gd_scene load_steps=83 format=3 uid="uid://ffvphu151fwp"]
 
 [ext_resource type="Texture2D" uid="uid://bnjfymyytfsoe" path="res://sprite/karakter pixel.png" id="1_37eag"]
 [ext_resource type="Texture2D" uid="uid://c8cf2d7ulx6hx" path="res://asset/isian/karakter pixel.png" id="1_vs6hb"]
 [ext_resource type="Texture2D" uid="uid://u1mmihkgngxk" path="res://asset/lightmask.png" id="2_6u67v"]
+[ext_resource type="AudioStream" uid="uid://dc2wbnvr8kolx" path="res://sound/enemy=fist-fight-192117.mp3" id="4_62e0c"]
 
 [sub_resource type="GDScript" id="GDScript_dk3k3"]
 resource_name = "player_orang"
@@ -14,14 +15,15 @@ script/source = "extends CharacterBody2D
 @onready var timer_label = $TimerLabel  # Node Label untuk menampilkan waktu
 
 var attacking: bool = false
-var health: int = 150  # Total health awal
-var max_health: int = 150  # Total maksimal health
+var health: int = 200  # Total health awal
+var max_health: int = 200  # Total maksimal health
 var dying: bool = false
-var damage: int = 5  # Damage yang diberikan per hit 
+var damage: int = 5  # Damage yang diterima per hit
 var is_slowed: bool = false  # Status apakah player sedang slow
 var normal_speed: float = 5000.0  # Kecepatan normal player
 var slow_speed: float = 2000.0  # Kecepatan saat slow
 var current_speed: float = normal_speed  # Kecepatan aktif (bisa slow atau normal)
+var last_displayed_time: int = -1
 
 @export var stage_time_limit: int = 180  # Total waktu dalam detik untuk menyelesaikan stage
 var current_time: int = 0  # Waktu tersisa dalam detik
@@ -34,12 +36,17 @@ func _ready():
 
 	# Inisialisasi Timer
 	current_time = stage_time_limit
-	_update_timer_label()
-	stage_timer.wait_time = 1  # Timer tick setiap 1 detik
+	stage_timer.wait_time = stage_time_limit
 	stage_timer.start()  # Mulai Timer
+	_update_timer_label()
 
 func _physics_process(delta: float) -> void:
+	
+	# Perbarui tampilan waktu di layar
+	_update_timer_label()
+	
 	if Input.is_action_just_pressed(\"attack\"):
+		$attack.play()
 		animation_tree.get(\"parameters/playback\").travel(\"Attack\")
 		attacking = true
 
@@ -60,21 +67,20 @@ func _physics_process(delta: float) -> void:
 			animation_tree.set(\"parameters/Attack/BlendSpace2D/blend_position\", input_vector)
 			animation_tree.set(\"parameters/Move/BlendSpace2D/blend_position\", input_vector)
 		move_and_slide()
-
+		
+#func _process(delta: float) -> void:
+	#_update_timer_label()
+	
 func _on_Timer_timeout():
-	# Callback dari Timer: kurangi waktu dan perbarui label
-	if current_time > 0:
-		current_time -= 1
-		_update_timer_label()
-	else:
 		print(\"Time's up! Player is dead.\")
 		game_over()  # Jika waktu habis, panggil game over
 
 func _update_timer_label():
 	# Perbarui teks di TimerLabel
 	if timer_label:
-		var minutes = int(current_time / 60)
-		var seconds = int(current_time % 60)
+		var total_seconds = int(stage_timer.time_left) 
+		var minutes = total_seconds / 60
+		var seconds = total_seconds % 60
 		timer_label.text = \"Time Left: %02d:%02d\" % [minutes, seconds]
 
 func hit(damage: int):
@@ -96,7 +102,7 @@ func update_health_bar():
 
 func game_over():
 	print(\"Game Over!\")  # Tampilkan pesan Game Over
-	get_tree().change_scene_to_file(\"res://scene/menu.tscn\")  # Lempar kembali ke menu utama
+	get_tree().change_scene_to_file(\"res://scene/restart.tscn\")  # Lempar kembali ke menu utama
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if \"attack\" in anim_name:
@@ -510,7 +516,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -11)]
+"values": [Vector2(0, -20)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -562,7 +568,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 6)]
+"values": [Vector2(0, 12)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -638,7 +644,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-15, -6)]
+"values": [Vector2(-20, -6)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -690,7 +696,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(10, -6)]
+"values": [Vector2(20, -6)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1141,6 +1147,11 @@ theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 7
 horizontal_alignment = 1
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_62e0c")
+volume_db = 24.0
+bus = &"attack"
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="Attack Dectetor Area" to="." method="_on_attack_dectetor_area_body_entered"]

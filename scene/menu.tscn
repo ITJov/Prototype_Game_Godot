@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://p64h4knm4tqr"]
+[gd_scene load_steps=9 format=3 uid="uid://p64h4knm4tqr"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_p6x8t"]
 [ext_resource type="Texture2D" uid="uid://khiwluu65poh" path="res://asset/isian/MIDNIGHT MAZE - GAME.jpg" id="2_cxyhb"]
+[ext_resource type="AudioStream" uid="uid://c0lyylvrns6il" path="res://sound/544_instrumental1_mystery-toy_0138_preview.mp3" id="3_pi7xm"]
+[ext_resource type="AudioStream" uid="uid://d26puofi3566r" path="res://sound/stapler-press-47576.mp3" id="4_enjbw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4wu2c"]
 diffuse_texture = ExtResource("2_cxyhb")
@@ -92,6 +94,14 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_pnnx1")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pi7xm")
+autoplay = true
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_enjbw")
+volume_db = 5.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

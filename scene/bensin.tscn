@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://qad21je7uepe"]
+[gd_scene load_steps=8 format=3 uid="uid://qad21je7uepe"]
 
 [ext_resource type="Script" path="res://script/bensin.gd" id="1_hlkyi"]
 [ext_resource type="Texture2D" uid="uid://cduokcshq0q2e" path="res://asset/isian/bensin pixel.png" id="1_lsxyx"]
+[ext_resource type="AudioStream" uid="uid://dkrj7lce4pm7c" path="res://sound/whoosh-fire-movement-243099.mp3" id="3_2426w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32ut0"]
 size = Vector2(121, 108)
@@ -82,5 +83,9 @@ shape = SubResource("RectangleShape2D_32ut0")
 libraries = {
 "": SubResource("AnimationLibrary_qrlsj")
 }
+
+[node name="bensin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2426w")
+volume_db = 10.866
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=3 uid="uid://dpm8ijtv66mx4"]
+[gd_scene load_steps=216 format=3 uid="uid://dpm8ijtv66mx4"]
 
 [ext_resource type="Script" path="res://script/monster_3.gd" id="1_ec71h"]
 [ext_resource type="Texture2D" uid="uid://chi6njt3ne3ps" path="res://asset/asset musuh/Orc1/Orc1_run_attack/orc1_run_attack_front_full.png" id="2_5f3fn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cc4e54dl4e7yo" path="res://asset/asset musuh/Orc1/Orc1_death/orc1_death_full.png" id="4_ch2g3"]
 [ext_resource type="Texture2D" uid="uid://ls4wdkvtxbcv" path="res://asset/asset musuh/Orc1/Orc1_idle/orc1_idle_full.png" id="5_l6e8y"]
 [ext_resource type="Texture2D" uid="uid://b6b3jr8we483k" path="res://asset/asset musuh/Orc1/Orc1_walk/orc1_walk_full.png" id="6_rmxpo"]
+[ext_resource type="AudioStream" uid="uid://06lyutkex4uq" path="res://sound/monster-roar-6985.ogg" id="7_cy37x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ph581"]
 atlas = ExtResource("2_5f3fn")
@@ -2008,6 +2009,12 @@ states/Walk/position = Vector2(650, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xvdne"), "Chasing", "Attack", SubResource("AnimationNodeStateMachineTransition_ehh4c"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_1kps0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_fdmey"), "Attack", "Chasing", SubResource("AnimationNodeStateMachineTransition_ti3w0"), "Idle", "Chasing", SubResource("AnimationNodeStateMachineTransition_665iw"), "Chasing", "Idle", SubResource("AnimationNodeStateMachineTransition_12tiu"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_21iik"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_l8hux"), "Walk", "Chasing", SubResource("AnimationNodeStateMachineTransition_lskdm"), "Chasing", "Walk", SubResource("AnimationNodeStateMachineTransition_w7pw3"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_a33cl")]
 graph_offset = Vector2(-137.026, 39.2828)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e117l"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b533a"]
+bg_color = Color(0.779544, 0.0593131, 0, 1)
+
 [node name="SmallMonster" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_ec71h")
@@ -2050,6 +2057,20 @@ parameters/Chasing/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Death/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Idle/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Walk/BlendSpace2D/blend_position = Vector2(0, 0)
+
+[node name="troll3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cy37x")
+volume_db = 15.6
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -19.0
+offset_right = 13.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_e117l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b533a")
+value = 100.0
+show_percentage = false
 
 [connection signal="body_entered" from="Player Detector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="Player Detector" to="." method="_on_player_detector_body_exited"]

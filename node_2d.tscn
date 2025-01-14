@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dnkbvwg2quhl" path="res://asset/plugin/Water+.png" id="9_yaul0"]
 [ext_resource type="PackedScene" uid="uid://bxi7jkcqdp71b" path="res://scene/obor.tscn" id="10_dgvok"]
 [ext_resource type="PackedScene" uid="uid://dpm8ijtv66mx4" path="res://scene/monster3.tscn" id="11_n865u"]
-[ext_resource type="PackedScene" uid="uid://bwkq7cm37ysl6" path="res://scene/hati.tscn" id="13_ngysy"]
+[ext_resource type="PackedScene" path="res://scene/hati.tscn" id="13_ngysy"]
 [ext_resource type="PackedScene" uid="uid://qad21je7uepe" path="res://scene/bensin.tscn" id="14_rlenc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tbjf"]
@@ -6529,7 +6529,7 @@ size = Vector2(22.5, 66.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t1a1"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 position = Vector2(494, 325)
 script = ExtResource("1_l24s7")
 
@@ -6564,10 +6564,6 @@ position = Vector2(3, -2)
 tile_map_data = PackedByteArray("AAADAAMAAAACAAkAAAADAAIAAAACAAkAAAACAAEAAAACAAkAAAABAAEAAAACAAkAAAAAAAEAAAACAAkAAAD//wEAAAACAAkAAAD+/wEAAAACAAkAAAD9/wQAAAADAAkAAAADAAQAAAADAAkAAAD9/wEAAAADAAkAAAADAAEAAAADAAkAAAD7/wIAAAAEAAkAAAD8/wIAAAAEAAkAAAD8/wMAAAAEAAkAAAD7/wMAAAAEAAkAAAD+/wQAAAACAAkAAAD//wQAAAACAAkAAAAAAAQAAAACAAkAAAABAAQAAAACAAkAAAACAAQAAAACAAkAAAACAAUAAAACAAkAAAD9/wIAAAAAAAkAAAD9/wMAAAAAAAkAAAA=")
 tile_set = SubResource("TileSet_7uw4a")
 
-[node name="Player_Orang" parent="." instance=ExtResource("5_cni4b")]
-position = Vector2(-387, -299)
-rotation = -0.000199085
-
 [node name="obstacle-pohon" type="StaticBody2D" parent="."]
 position = Vector2(156, 18)
 physics_material_override = SubResource("PhysicsMaterial_0c0qw")
@@ -6586,11 +6582,7 @@ position = Vector2(-23, 23)
 physics_material_override = SubResource("PhysicsMaterial_0c0qw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.00392157, 0.00392157, 0.00392157, 0.784314)
-
-[node name="Stage" type="Timer" parent="."]
-wait_time = 180.0
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="Bensin_Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -6680,7 +6672,25 @@ player = NodePath("../Player_Orang")
 position = Vector2(215, 56)
 player = NodePath("../Player_Orang")
 
-[connection signal="timeout" from="Stage" to="." method="_on_stage_timeout"]
+[node name="Player_Orang" parent="." instance=ExtResource("5_cni4b")]
+position = Vector2(-387, -299)
+rotation = -0.000199085
+
+[node name="obor2" parent="." instance=ExtResource("10_dgvok")]
+position = Vector2(592, -225)
+
+[node name="obor3" parent="." instance=ExtResource("10_dgvok")]
+position = Vector2(237, -80)
+
+[node name="obor4" parent="." instance=ExtResource("10_dgvok")]
+position = Vector2(594, 116)
+
+[node name="obor5" parent="." instance=ExtResource("10_dgvok")]
+position = Vector2(-142, -227)
+
+[node name="obor6" parent="." instance=ExtResource("10_dgvok")]
+position = Vector2(-276, 97)
+
 [connection signal="timeout" from="Bensin_Timer" to="." method="_on_bensin_timer_timeout"]
 [connection signal="body_entered" from="Next Gate" to="Next Gate" method="_on_body_entered"]
 [connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]

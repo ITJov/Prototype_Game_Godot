@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=3 uid="uid://bgnxfc5lir5hr"]
+[gd_scene load_steps=216 format=3 uid="uid://bgnxfc5lir5hr"]
 
 [ext_resource type="Script" path="res://script/monster_1.gd" id="1_1i4h3"]
 [ext_resource type="Texture2D" uid="uid://cg5ah57gfcd4c" path="res://asset/asset musuh/Orc2/Orc2_attack/orc2_attack_full.png" id="1_8lwyp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kehb2r13vwcu" path="res://asset/asset musuh/Orc2/Orc2_idle/orc2_idle_full.png" id="3_l2as6"]
 [ext_resource type="Texture2D" uid="uid://cjowefas1s3vc" path="res://asset/asset musuh/Orc2/Orc2_run/orc2_run_full.png" id="4_m1ust"]
 [ext_resource type="Texture2D" uid="uid://bblk3muhkkfiv" path="res://asset/asset musuh/Orc2/Orc2_walk/orc2_walk_full.png" id="6_wql8r"]
+[ext_resource type="AudioStream" uid="uid://68jlmn7j3k1q" path="res://sound/enemy-sword-cut-type-1-230552.mp3" id="7_cq1ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3rcq"]
 atlas = ExtResource("1_8lwyp")
@@ -2066,6 +2067,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ftiyh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xk0ph")
 value = 100.0
 show_percentage = false
+
+[node name="attacktroll3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cq1ow")
 
 [connection signal="body_entered" from="Player Detector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="Player Detector" to="." method="_on_player_detector_body_exited"]

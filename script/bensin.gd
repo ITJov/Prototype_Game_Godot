@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		print("kena bensin")
 		queue_free() 
 		point_light.texture_scale = 0.15
-		timer.start()  
+		timer.start()
+		$bensin.play()  
