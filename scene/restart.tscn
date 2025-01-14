@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4e5vmevfomdu"]
+
+[ext_resource type="Script" path="res://Restart.gd" id="1_flggi"]
+[ext_resource type="Texture2D" uid="uid://otxf6pimd8c1" path="res://asset/MIDNIGHT MAZE - GAME/4.png" id="2_ofeoq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_flggi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 655.0
+texture = ExtResource("2_ofeoq")
+expand_mode = 1
+
+[node name="restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 440.0
+offset_right = 405.0
+offset_bottom = 493.0
+text = "RESTART"
+
+[node name="menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 440.0
+offset_right = 862.0
+offset_bottom = 492.0
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

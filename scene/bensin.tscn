@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://qad21je7uepe"]
+
+[ext_resource type="Script" path="res://script/bensin.gd" id="1_hlkyi"]
+[ext_resource type="Texture2D" uid="uid://cduokcshq0q2e" path="res://asset/isian/bensin pixel.png" id="1_lsxyx"]
+[ext_resource type="AudioStream" uid="uid://dkrj7lce4pm7c" path="res://sound/whoosh-fire-movement-243099.mp3" id="3_2426w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32ut0"]
+size = Vector2(121, 108)
+
+[sub_resource type="Animation" id="Animation_qkou8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10.5, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_6dp7p"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-10.5, 13), Vector2(-10.5, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrlsj"]
+_data = {
+"RESET": SubResource("Animation_qkou8"),
+"idle": SubResource("Animation_6dp7p")
+}
+
+[node name="Bensin" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_hlkyi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lsxyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10.5, 7)
+shape = SubResource("RectangleShape2D_32ut0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qrlsj")
+}
+
+[node name="bensin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2426w")
+volume_db = 10.866
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,52 +1,37 @@
 extends Node2D
 
+@onready var player = $Player_Orang  # Referensi ke karakter player
+@onready var pit_area = $Pit  # Node Area2D untuk jurang
+@onready var timer = $Stage  # Referensi ke Timer untuk penghitungan waktu
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	AudioGlobal.play_music_level()
+	# Hubungkan sinyal dari area Pit (jurang)
+	pit_area.connect("body_entered", Callable(self, "_on_Pit_body_entered"))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta) -> void:
-	if(Input.is_action_pressed("ui_right")):
-		$Player_Orang.move_and_collide(Vector2(10,0))
-		#print("kanan")
-	elif(Input.is_action_pressed("ui_left")):
-		$Player_Orang.move_and_collide(Vector2(-10,0))
-		#print("kiri")
-	elif(Input.is_action_pressed("ui_up")):
-		$Player_Orang.move_and_collide(Vector2(0,-10))
-		#print("atas")
-	elif(Input.is_action_pressed("ui_down")):
-		$Player_Orang.move_and_collide(Vector2(0,10))
-		#print("bawah")
+func _physics_process(delta: float) -> void:
 	pass
 
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#if(Input.is_action_pressed("ui_right")):
-		#$Player.position = $Player.position + Vector2(10,0)
-		#print("kanan")
-	#elif(Input.is_action_pressed("ui_left")):
-		#$Player.position = $Player.position + Vector2(-10,0)
-		#print("kiri")
-	#elif(Input.is_action_pressed("ui_up")):
-		#$Player.position = $Player.position + Vector2(0,-10)
-		#print("atas")
-	#elif(Input.is_action_pressed("ui_down")):
-		#$Player.position = $Player.position + Vector2(0,10)
-		#print("bawah")
-	#pass
+func _on_Slow_body_entered(body: Node2D) -> void:
+	# Periksa apakah body yang masuk adalah player
+	if body == player:
+		player.set_slow(true)  # Aktifkan slow pada karakter
+		print("Player entered slow area. Movement slowed.")
 
+func _on_Slow_body_exited(body: Node2D) -> void:
+	# Periksa apakah body yang keluar adalah player
+	if body == player:
+		player.set_slow(false)  # Matikan slow pada karakter
+		print("Player exited slow area. Movement back to normal.")
 
-func dapet_bensin(body: Node2D) -> void:
-	$Bensin.queue_free()
-	$Player_Orang/PointLight2D.texture_scale = 0.15
-	$Timer.start()
-	pass # Replace with function body.
+func _on_Pit_body_entered(body: Node2D) -> void:
+	# Periksa apakah body yang masuk adalah player
+	if body == player:
+		print("Player fell into the pit. Game Over!")
+		player.game_over()  # Matikan player dan panggil game over
+	
+func _on_stage_timeout() -> void:
+	player.game_over()  # Panggil fungsi game_over dari player
 
-
-func bensin_habis() -> void:
+func _on_bensin_timer_timeout() -> void:
 	$Player_Orang/PointLight2D.texture_scale = 0.1
-	print('besin habis')
-	pass # Replace with function body.

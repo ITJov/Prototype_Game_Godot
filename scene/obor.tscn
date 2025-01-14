@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://bxi7jkcqdp71b"]
+
+[ext_resource type="Texture2D" uid="uid://cn6gvngykfcfd" path="res://asset/isian/obor pixel.png" id="1_idbfc"]
+[ext_resource type="Texture2D" uid="uid://u1mmihkgngxk" path="res://asset/lightmask.png" id="2_18afy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um38k"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(0, 0, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl0d3"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(520, 0, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yic4j"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(1040, 0, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05v6"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(0, 520, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1djf2"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(520, 520, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f1x2"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(1040, 520, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lew1l"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(0, 1040, 520, 520)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o26ur"]
+atlas = ExtResource("1_idbfc")
+region = Rect2(520, 1040, 520, 520)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhrsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um38k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl0d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yic4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1djf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f1x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lew1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o26ur")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2g3e4"]
+radius = 3.0
+height = 16.0
+
+[node name="obor" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0445312, 0.0445312)
+sprite_frames = SubResource("SpriteFrames_xhrsa")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2g3e4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.0443115, 0.0443115)
+color = Color(0.82265, 0.585043, 0, 1)
+texture = ExtResource("2_18afy")
